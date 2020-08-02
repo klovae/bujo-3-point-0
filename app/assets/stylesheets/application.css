@@ -13,3 +13,309 @@
  *= require_tree .
  *= require_self
  */
+
+ /* //////////////// GENERAL ////////////////// */
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    background-image: url(/images/dot_grid.png);
+    background-size: cover;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    height: 100%;
+    line-height: 1.4em;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: .01em;
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin: 1.2em 0;
+  }
+  
+  li {
+    font-size: 1.2em;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #08A854;
+    transition: color 0.2s linear;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  td {
+    vertical-align: baseline;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2em;
+    padding: 0 8px;
+  }
+  
+  /* //////// WRAPPERS ////// */
+  
+  #all-wrap {
+    width: 60%;
+    background-color: rgba(255, 255, 255, .7);
+    padding: 0 5%;
+    margin: auto;
+  }
+  
+  #bookmark {
+    display: inline-block;
+    position: fixed;
+  }
+  
+  #menu-wrap {
+    float: left;
+    width: 15%;
+    padding-right: 5%;
+    padding-top: 3%;
+    height: 90%;
+  }
+  
+  #logo {
+    width: 160px;
+  }
+  
+  #content-wrap {
+    float: right;
+    width: 72%;
+    padding-top: 3%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  /* /////// FLASH DIVS ////// */
+  div.error-message {
+    color: #E3280B;
+  }
+  
+  div.success-message {
+    color: #08A854;
+  }
+  
+  /* /// MENUS ////// */
+  
+  #menu {
+    list-style-type: none;
+    padding-top: 1em;
+  }
+  
+  #menu a {
+    display: block;
+    font-size: 1.3em;
+    line-height: 1.6em;
+  }
+  
+  div.line {
+    width:50%;
+    border-bottom: 2px solid #000;
+    margin: 20px 0;
+  }
+  
+  div.day-nav {
+    font-size: 1.3em;
+    line-height: 1.6em;
+  }
+  
+  div.day-list a {
+    font-size: 1.2em;
+    line-height: 1.4em;
+  }
+  
+  h1.day-title {
+    margin-bottom: .3em;
+  }
+  
+  
+  /* /////// TASKS + EVENTS /////// */
+  
+  .task-component {
+    display: inline-block;
+  }
+  
+  div.task, div.event-item, div.credit {
+    padding: 4px 0;
+    font-size: 1.2em;
+  }
+  
+  div.indicator {
+    padding: 0 8px;
+  }
+  
+  div.content {
+    margin-right: 6px;
+  }
+  
+  /* /////// FORM STYLES //////// */
+  
+  form input[type="text"], form input[type="password"], form input[type="email"] {
+    padding: 12px 16px 10px;
+    width: 50%;
+    border: none;
+    border-bottom: 3px solid #888;
+    box-sizing: border-box;
+    margin: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+  }
+  
+  form.submit input[type="text"], form.submit input[type="password"], form.submit input[type="email"] {
+    width: 100%;
+  }
+  
+  form.add input[type="text"] {
+    background-image: url(/images/edit.png);
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding-left: 36px;
+    margin-right: 4px;
+    font-size: 1.2em;
+  }
+  
+  form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #08A854;
+  }
+  
+  input[type=button], input[type=submit] {
+      background-color: transparent;
+      border: 2px solid transparent;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: border 0.2s linear;
+  }
+  
+  form.submit input[type=button], form.submit input[type=submit], a div.button {
+    background-color: #08A854;
+    border: none;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin-top: 20px;
+  }
+  
+  a div.button {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /*////// ICON STYLES ///////*/
+  
+  
+  .icon {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border: none;
+      display: inline-block;
+      margin-right: 6px;
+      transition: background-image 0.2s linear;
+  }
+  
+  div.event {
+    background-image: url(/images/circle-outline.png);
+    background-size: contain;
+    cursor: auto;
+  }
+  
+  div.edit {
+    background-image: url(/images/editblk.png);
+    background-size: contain;
+    position: relative;
+    top: 2px;
+  }
+  
+  div.edit:hover {
+    background-image: url(/images/edit-grn.png);
+    background-size: contain;
+  }
+  
+  
+  div.migrate {
+      background-image: url(/images/scroll-arrow-to-rightblk.png);
+      background-size: contain;
+  }
+  
+  div.migrate:hover {
+      background-image: url(/images/scroll-arrow-to-rightgrn.png);
+      background-size: contain;
+  }
+  
+  
+  div.migrated {
+      background-image: url(/images/scroll-arrow-to-rightblk.png);
+      background-size: contain;
+      cursor: auto;
+  }
+  
+  div.complete {
+      background-image: url(/images/bullet-icon-01.png);
+      background-size: contain;
+  }
+  
+  div.complete:hover {
+      background-image: url(/images/letter-x.png);
+      background-size: contain;
+  }
+  
+  div.completed {
+      background-image: url(/images/letter-x.png);
+      background-size: contain;
+      cursor: auto;
+  }
+  
+  div.delete {
+      background-image: url(/images/rubbish-binblk.png);
+      background-size: contain;
+  }
+  
+  div.delete:hover {
+      background-image: url(/images/rubbish-bingrn.png);
+      background-size: contain;
+  }
+  
+  
+  div.add {
+      background-image: url(/images/add-songblk.png);
+      background-size: contain;
+  }
+  
+  div.add:hover {
+      background-image: url(/images/add-song.png);
+      background-size: contain;
+  }
+  
+  img.inline {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* ///// FIXES ////// */
+  
+  .clearfix:after {
+     content: ".";
+     visibility: hidden;
+     display: block;
+     height: 0;
+     clear: both;
+  }
+  
