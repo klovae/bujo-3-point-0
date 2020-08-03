@@ -14,10 +14,12 @@
       <div id="menu-wrap">
         <a href="/days/today"><img id="logo" src="/images/bujo_logo_color.png" alt="" /></a>
         <div id="menu">
-        
+        <% if current_user %>
+          <a href="/logout">Log Out</a>
+        <% else%>
           <a href="/login">Log In</a>
           <a href="/users/new">Create Account</a>
-    
+        <% end %>
           <div class="line">
           </div>
           <a href="/help">Help</a>
