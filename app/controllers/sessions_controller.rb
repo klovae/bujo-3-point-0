@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    #skip_around_action :set_time_zone
 
     def new
     end

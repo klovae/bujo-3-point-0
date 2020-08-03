@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    #skip_around_action :set_time_zone, only: [:new, :create]
 
     def new
         @user = User.new
@@ -9,7 +10,8 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:success] = "Account created successfully. Welcome to BuJo 3.0!"
-            redirect_to days_today_path
+            @today = @user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)
+            redirect_to day_path(@today)
         else
             flash[:error] = @user.errors.full_messages
             render :new
