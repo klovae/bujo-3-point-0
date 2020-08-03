@@ -190,16 +190,7 @@ html {
     border-bottom: 3px solid #08A854;
   }
   
-  input[type=button], input[type=submit] {
-      background-color: transparent;
-      border: 2px solid transparent;
-      text-decoration: none;
-      margin: 4px 2px;
-      cursor: pointer;
-      transition: border 0.2s linear;
-  }
-  
-  form.submit input[type=button], form.submit input[type=submit], a div.button {
+  input[type=button], input[type=submit], a div.button {
     background-color: #08A854;
     border: none;
     color: #fff;

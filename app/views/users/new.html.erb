@@ -8,7 +8,10 @@ Start your digital Bullet Journal today!
   </div>
 <% elsif flash[:error] %>
   <div class="error-message">
-    <%= flash[:error] %>
+    <p>Your account could not be created for the following reason(s):</p>
+    <% flash[:error].each do |error| %>
+        <p><%= error %></p>
+    <% end %>
   </div>
 <% end %>
 
