@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:success] = "Account created successfully. Welcome to BuJo 3.0!"
-            redirect_to user_path(@user)
+            redirect_to days_today_path
         else
             flash[:error] = @user.errors.full_messages
             render :new

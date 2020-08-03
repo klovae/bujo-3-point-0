@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
             
             session[:user_id] = @user.id
             flash[:success] = "Welcome back, #{current_user.first_name}!"
-            redirect_to user_path(@user)
+            @today = @user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)
+            redirect_to day_path(@today)
         else
             flash[:error] = "Sorry, your username and/or password is incorrect. Please try again."
             render :new
