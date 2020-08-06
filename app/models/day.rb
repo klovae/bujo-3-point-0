@@ -3,7 +3,7 @@ class Day < ApplicationRecord
     has_many :tasks
 
     def human_time
-        self.date.strftime("%a, %B %-d, %Y")
+        self.date.strftime("%A, %B %-d, %Y")
     end
 
     def self.today(user_id)

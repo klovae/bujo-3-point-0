@@ -4,15 +4,17 @@
   <div class="success-message">
     <%= flash[:success] %>
   </div>
-<% elsif flash[:error] %>
+<% elsif flash[:errors] %>
   <div class="error-message">
-    <%= flash[:error] %>
+    <% flash[:errors].each do |error| %>
+        <p><%= error[1][0] %></p>
+    <% end %>
   </div>
 <% end %>
 
 <% if current_user.days.all.count <= 2 %>
 <p>
-  New to BuJo 2.0? <a href="/help">Get the basics</a>!
+  New to BuJo 3.0? <a href="/help">Get the basics</a>!
 </p>
 <% end %>
 
@@ -30,3 +32,11 @@
     <em>Click the "+" next to Tasks to add your first task.</em>
   </p>
 <% end %>
+
+<% @day.tasks.each do |task| %>
+  <div class="task">
+    <div class="task-component content">
+      <%= task.content %>
+    </div>
+  </div>
+  <% end %>

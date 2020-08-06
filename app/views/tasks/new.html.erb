@@ -4,9 +4,11 @@
   <div class="success-message">
     <%= flash[:success] %>
   </div>
-<% elsif flash[:error] %>
+<% elsif flash[:errors] %>
   <div class="error-message">
-    <%= flash[:error] %>
+    <% flash.now[:errors].each do |error| %>
+        <p><%= error[1][0] %></p>
+    <% end %>
   </div>
 <% end %>
 

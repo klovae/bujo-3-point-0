@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   get '/days/today', to: 'days#today'
   resources :days, only: [:index, :show] do
-    resources :tasks, only: [:show, :new, :create, :edit, :update]
+    resources :tasks, only: [:new, :edit]
   end
   
-  resources :tasks, only: [:index, :destroy]
+  resources :tasks, only: [:index, :create, :update, :destroy]
 
   get '/about', to: 'static#about'
   get '/help', to: 'static#help'
