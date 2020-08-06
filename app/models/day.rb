@@ -11,7 +11,7 @@ class Day < ApplicationRecord
     end
 
     def self.tomorrow(user_id)
-        find_or_create_by_date_and_user_id(date: Time.zone.tomorrow.beginning_of_day, user_id: user_id)
+        find_or_create_by(date: Time.zone.tomorrow.beginning_of_day, user_id: user_id)
     end
 
     def next_day

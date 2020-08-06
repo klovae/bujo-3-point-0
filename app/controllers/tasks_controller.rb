@@ -5,10 +5,12 @@ class TasksController < ApplicationController
     end
     
     def new
-        @day = Day.find_by_id(params[:id])
+        @day = Day.find_by_id(params[:day_id])
+        @task = Task.new(day_id: @day.id)
     end
 
     def create
+        @day = Day.find_by_id(params[:day_id])
     end
 
     def show
@@ -26,7 +28,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:content)
+        params.require(:task).permit(:content, :user_id, :day_id)
     end
         
 end
