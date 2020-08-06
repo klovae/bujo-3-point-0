@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    #skip_around_action :set_time_zone
+    skip_around_action :set_time_zone
 
     def new
     end
@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:password])
             
             session[:user_id] = @user.id
+            set_time_zone {@today = @user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)}
             flash[:success] = "Welcome back, #{current_user.first_name}!"
-            @today = @user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)
             redirect_to day_path(@today)
         else
             flash[:error] = "Sorry, your username and/or password is incorrect. Please try again."

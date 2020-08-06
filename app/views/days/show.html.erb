@@ -1,1 +1,32 @@
 <h1 class="day-title"><%= @day.human_time %></h1>
+
+<% if flash[:success] %>
+  <div class="success-message">
+    <%= flash[:success] %>
+  </div>
+<% elsif flash[:error] %>
+  <div class="error-message">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if current_user.days.all.count <= 2 %>
+<p>
+  New to BuJo 2.0? <a href="/help">Get the basics</a>!
+</p>
+<% end %>
+
+<h2>Tasks
+    <% if @day.date >= Time.zone.today.beginning_of_day %>
+        <%= link_to new_day_task_path(@day) do %>
+            <div class="add icon"></div>
+        <% end %>
+    <% end %>
+
+</h2>
+
+<% if @day.tasks.count == 0 %>
+  <p class="help-text">
+    <em>Click the "+" next to Tasks to add your first task.</em>
+  </p>
+<% end %>

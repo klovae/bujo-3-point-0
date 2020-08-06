@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
 
-  resources :days, only: [:index, :show]
   get '/days/today', to: 'days#today'
+  resources :days, only: [:index, :show] do
+    resources :tasks, only: [:show, :new, :create, :edit, :update]
+  end
+  
+  resources :tasks, only: [:index, :destroy]
 
-  
-  
   get '/about', to: 'static#about'
   get '/help', to: 'static#help'
   root 'static#index'

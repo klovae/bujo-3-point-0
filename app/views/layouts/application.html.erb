@@ -12,7 +12,7 @@
   <body>
       <div id="all-wrap" class="clearfix">
       <div id="menu-wrap">
-        <a href="/days/today"><img id="logo" src="/images/bujo_logo_color.png" alt="" /></a>
+        <a href="<%= current_user ? '/days/today' : '/' %>"><img id="logo" src="/images/bujo_logo_color.png" alt="" /></a>
         <div id="menu">
         <% if current_user %>
           <a href="/logout">Log Out</a>
