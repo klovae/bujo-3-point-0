@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     
     def index
-        @tasks = current_user.tasks.where(["status = ?", "open"])
+        @tasks = current_user.tasks.where("status = ?", "open")
     end
     
     def new

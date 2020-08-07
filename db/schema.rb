@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_024219) do
+ActiveRecord::Schema.define(version: 2020_08_07_172400) do
 
   create_table "days", force: :cascade do |t|
     t.datetime "date"
@@ -20,9 +20,18 @@ ActiveRecord::Schema.define(version: 2020_08_03_024219) do
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
+  create_table "migrations", force: :cascade do |t|
+    t.integer "day_id"
+    t.integer "new_day_id"
+    t.integer "task_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_migrations_on_task_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "content"
-    t.string "status"
+    t.string "status", default: "open"
     t.integer "user_id"
     t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false

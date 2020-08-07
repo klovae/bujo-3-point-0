@@ -14,7 +14,7 @@
 
 <% if current_user.days.all.count <= 2 %>
 <p>
-  New to BuJo 3.0? <a href="/help">Get the basics</a>!
+  New to BuJo 3.0? <%= link_to "Get the basics!", help_path %>
 </p>
 <% end %>
 
