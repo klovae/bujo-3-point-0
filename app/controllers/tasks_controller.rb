@@ -23,6 +23,11 @@ class TasksController < ApplicationController
     end
 
     def edit
+        @day = Day.find_by_id(params[:day_id])
+        @task = Task.find_by_id(params[:id])
+    end
+
+    def update
         @task = Task.find_by_id(params[:id])
         if @task.update(task_params)
             redirect_to day_path(@task.day)
@@ -32,16 +37,13 @@ class TasksController < ApplicationController
         end
     end
 
-    def update
-    end
-
     def destroy
     end
 
     private
 
     def task_params
-        params.require(:task).permit(:content, :day_id, :user_id)
+        params.require(:task).permit(:content, :status, :day_id, :user_id)
     end
         
 end

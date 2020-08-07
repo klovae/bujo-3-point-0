@@ -35,8 +35,37 @@
 
 <% @day.tasks.each do |task| %>
   <div class="task">
+
+    <%# task complete button %>
+    <div class="task-component">
+      <% if task.status == "complete" %>
+        <div class="completed icon"></div>
+      <% else %>
+          <%= form_for task do |f| %>
+            <%= f.hidden_field :status, value: "complete" %>
+            <div class="complete icon">
+            <%= f.submit value: "" , class: "button-hide" %>
+            </div>
+          <% end %>
+      <% end %>
+  </div>
+
+    <%# task content %>
     <div class="task-component content">
       <%= task.content %>
     </div>
+
+    <%# task migrate %>
+
+    <%# task edit %>
+    <div class="task-component">
+      <%= link_to edit_day_task_path(@day, task) do %>
+        <div class="edit icon"></div>
+      <% end %>
+    </div>
+
+    <%# task strikethrough %>
+
+
   </div>
   <% end %>

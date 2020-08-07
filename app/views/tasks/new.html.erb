@@ -13,8 +13,5 @@
 <% end %>
 
 <%= form_for(@task) do |f| %>
-    <%= f.text_field :content %>
-    <%= f.hidden_field :day_id, value: @day.id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit %>
+  <%= render partial: 'form', locals: {f: f} %>
 <% end %>

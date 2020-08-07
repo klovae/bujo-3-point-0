@@ -190,8 +190,18 @@ html {
     border: none;
     border-bottom: 3px solid #08A854;
   }
+
+  div.icon input[type=button], div.icon input[type=submit] {
+    background-color: transparent;
+    border: 2px solid transparent;
+    text-decoration: none;
+    line-height: 1em;
+    cursor: pointer;
+    padding: 0px 12px;
+    margin: 0px;
+}
   
-  input[type=button], input[type=submit], a div.button {
+  input[type=button], input[type=submit] {
     background-color: #08A854;
     border: none;
     color: #fff;
@@ -208,6 +218,7 @@ html {
     margin-right: 10px;
     margin-bottom: 20px;
   }
+
   
   /*////// ICON STYLES ///////*/
   

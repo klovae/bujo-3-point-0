@@ -1,0 +1,17 @@
+<h1>Edit a task for <%= @day.human_time %></h1>
+
+<% if flash[:success] %>
+  <div class="success-message">
+    <%= flash[:success] %>
+  </div>
+<% elsif flash[:errors] %>
+  <div class="error-message">
+    <% flash.now[:errors].each do |error| %>
+        <p><%= error[1][0] %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for(@task) do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+<% end %>
