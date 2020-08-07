@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :edit]
   end
   
-  resources :tasks, only: [:index, :create, :update, :destroy]
+  resources :tasks, only: [:index, :create, :update, :destroy] do
+    resources :migrations, only: [:create]
+  end
 
   get '/about', to: 'static#about'
   get '/help', to: 'static#help'
