@@ -38,6 +38,12 @@ class TasksController < ApplicationController
     end
 
     def destroy
+        @task = Task.find_by_id(params[:id])
+        @day = Day.find_by_id(@task.day_id)
+
+        @task.destroy
+        flash[:success] = "Task deleted."
+        redirect_to day_path(@day)
     end
 
     private

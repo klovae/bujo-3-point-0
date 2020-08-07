@@ -26,6 +26,7 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     height: 100%;
+    font-size: 1.2em;
     line-height: 1.4em;
   }
   
@@ -36,13 +37,9 @@ html {
   }
   
   p {
-    font-size: 1.2em;
     margin: 1.2em 0;
   }
-  
-  li {
-    font-size: 1.2em;
-  }
+
   
   a {
     text-decoration: none;
@@ -148,7 +145,6 @@ html {
   
   div.task, div.event-item, div.credit {
     padding: 4px 0;
-    font-size: 1.2em;
   }
   
   div.indicator {
@@ -171,18 +167,13 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
   }
-  
-  form.submit input[type="text"], form.submit input[type="password"], form.submit input[type="email"] {
-    width: 100%;
-  }
-  
+
   form.add input[type="text"] {
     background-image: url(/images/edit.png);
     background-position: 5px 5px;
     background-repeat: no-repeat;
     padding-left: 36px;
     margin-right: 4px;
-    font-size: 1.2em;
   }
   
   form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {

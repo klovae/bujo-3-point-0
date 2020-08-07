@@ -64,8 +64,12 @@
       <% end %>
     </div>
 
-    <%# task strikethrough %>
-
-
-  </div>
+    <%# task delete %>
+    <div class="task-component">
+      <%= form_for task, method: :delete do |f| %>
+        <div class="delete icon">
+        <%= f.submit value: "" , class: "button-hide" %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
