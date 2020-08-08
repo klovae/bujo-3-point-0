@@ -82,3 +82,20 @@
       <% end %>
     </div>
   <% end %>
+
+  <% if @migrations.count > 0 %>
+    <h3>Migrated Tasks</h3>
+    <% @migrations.each do |task| %>
+    <div class="task">
+
+    <%# migrated indicator%>
+      <div class="task-component migrate icon"></div>
+
+    <%# task content %>
+      <div class="task-component content">
+        <%= task.content %>
+      </div>
+
+    </div>
+    <% end %>
+  <% end %>

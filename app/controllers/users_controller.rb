@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             flash[:success] = "Account created successfully. Welcome to BuJo 3.0!"
             redirect_to day_path(@today)
         else
-            flash[:error] = @user.errors.full_messages
+            flash.now[:errors] = @user.errors.full_messages
             render :new
         end
     end

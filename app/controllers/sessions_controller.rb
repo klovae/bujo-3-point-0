@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             flash[:success] = "Welcome back, #{current_user.first_name}!"
             redirect_to day_path(@today)
         else
-            flash[:error] = "Sorry, your username and/or password is incorrect. Please try again."
+            flash.now[:error] = "Sorry, your username and/or password is incorrect. Please try again."
             render :new
         end
     end

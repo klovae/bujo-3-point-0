@@ -5,9 +5,10 @@ class MigrationsController < ApplicationController
         day_id = task.day.id
 
         if task.day == Day.today(current_user.id)
-          new_day = Day.tomorrow(current_user.id)
+            new_day = Day.tomorrow(current_user.id)
+        
         else #if migrating from a previous day to current day
-          new_day = Day.today(current_user.id) 
+            new_day = Day.today(current_user.id) 
         end
         
         migrate = Migration.create(task_id: task.id, day_id: day_id, new_day_id: new_day.id)
@@ -15,6 +16,11 @@ class MigrationsController < ApplicationController
         task.save
         flash[:success] = "Task migrated"
         redirect_to day_path(day_id)
+        
+        #NEED TO ADD LOGIC SO USERS CANNOT MIGRATE TOMORROW'S TASKS
+        # elsif task.day == Day.tomorrow(current_user.id)
+        #     flash[:error] = "Tomorrow's tasks cannot be migrated."
+        #     redirect_to day_path(day_id)
     end
 
 end

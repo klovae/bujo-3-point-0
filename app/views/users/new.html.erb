@@ -2,18 +2,8 @@
 <p>
 Start your digital Bullet Journal today!
 </p>
-<% if flash[:success] %>
-  <div class="success-message">
-    <%= flash[:success] %>
-  </div>
-<% elsif flash[:error] %>
-  <div class="error-message">
-    <p>Your account could not be created for the following reason(s):</p>
-    <% flash[:error].each do |error| %>
-        <p><%= error %></p>
-    <% end %>
-  </div>
-<% end %>
+
+<%= render partial: '/layouts/flash_message_center' %>
 
 <%= form_for @user do |f| %>
 <table>

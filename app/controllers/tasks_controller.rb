@@ -14,12 +14,9 @@ class TasksController < ApplicationController
         if @task.valid?
             redirect_to day_path(@task.day)
         else
-            flash[:errors] = @task.errors
+            flash[:error] = @task.errors.messages[:content].first
             redirect_to new_day_task_path(@task.day.id)
         end
-    end
-
-    def show
     end
 
     def edit
@@ -32,8 +29,8 @@ class TasksController < ApplicationController
         if @task.update(task_params)
             redirect_to day_path(@task.day)
         else
-            flash.now[:errors] = @task.errors
-            render :edit
+            flash[:error] = @task.errors.messages[:content].first
+            redirect_to edit_day_task_path(@task.day.id)
         end
     end
 
@@ -51,5 +48,6 @@ class TasksController < ApplicationController
     def task_params
         params.require(:task).permit(:content, :status, :day_id, :user_id)
     end
+    
         
 end

@@ -11,28 +11,26 @@
 
   <body>
       <div id="all-wrap" class="clearfix">
-      <div id="menu-wrap">
-        <img id="logo" src="/images/bujo_logo_30.png" alt="" />
-        <div id="menu">
-        <% if current_user %>
-          <%= link_to "Today" %>
-          <%= link_to "All Days", days_path %>
-          <%= link_to "All Tasks", tasks_path %>        
-          <%= link_to "Log Out", logout_path %>
-        <% else%>
-          <%= link_to "Log In", login_path %>
-          <%= link_to "Create Account", new_user_path %>
-        <% end %>
-          <div class="line">
-          </div>
-          <%= link_to "Help", help_path %>
-          <%= link_to "About", about_path %>
+        <div id="menu-wrap">
+            <img id="logo" src="/images/bujo_logo_30.png" alt="" />
+
+            <div id="menu">
+                <%= render partial: '/layouts/conditional_menu' %>
+
+                <div class="line">
+                </div>
+
+                <%= link_to "Help", help_path %>
+                <%= link_to "About", about_path %>
+            </div>
         </div>
-      </div>
-      <img id="bookmark" src="/images/bookmark-01.png" alt="" />
-      <div id="content-wrap">
-        <%= yield %>
-      </div>
+
+        <img id="bookmark" src="/images/bookmark-01.png" alt="" />
+
+        <div id="content-wrap">
+          <%= yield %>
+        </div>
+      
     </div>
   </body>
 </html>
