@@ -167,14 +167,6 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: .9em;
   }
-
-  form.add input[type="text"] {
-    background-image: url(/images/edit.png);
-    background-position: 5px 5px;
-    background-repeat: no-repeat;
-    padding-left: 36px;
-    margin-right: 4px;
-  }
   
   form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
     outline: none;
@@ -190,27 +182,33 @@ html {
     cursor: pointer;
     padding: 0px 12px;
     margin: 0px;
-}
+  } 
   
+  div #task_content {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 0px;
+    margin-top: 15px;
+    font-size: .7em;
+    line-height: 1.2em;
+    margin-right: 6px;
+    width: 80%;
+  }
+
   input[type=button], input[type=submit], div.button {
     background-color: #08A854;
     border: none;
     color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     padding: 12px 20px;
     margin-top: 20px;
-  }
-  
-  div.button {
     display: inline-block;
-    margin-right: 10px;
   }
 
   
   /*////// ICON STYLES ///////*/
-  
   
   .icon {
       cursor: pointer;
@@ -286,13 +284,20 @@ html {
   
   
   div.add {
-      background-image: url(/images/add-songblk.png);
+      background-image: url(/images/add-song.png);
       background-size: contain;
+      width: 24px;
+      height: 24px;
+      vertical-align: bottom;
+      padding-bottom: 5px;
+      background-repeat: no-repeat;
   }
   
   div.add:hover {
-      background-image: url(/images/add-song.png);
+      background-image: url(/images/add-songblk.png);
       background-size: contain;
+      width: 24px;
+      height: 24px;
   }
   
   img.inline {

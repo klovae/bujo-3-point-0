@@ -1,7 +1,8 @@
-<h1>Edit a task for <%= @day.human_time %></h1>
+<h1>Edit Task</h1>
 
 <%= render partial: '/layouts/flash_message_center'%>
 
 <%= form_for(@task) do |f| %>
   <%= render partial: 'form', locals: {f: f} %>
+  <%= f.submit %>
 <% end %>

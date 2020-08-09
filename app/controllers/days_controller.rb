@@ -6,6 +6,7 @@ class DaysController < ApplicationController
 
     def show
         @day = Day.find_by_id(params[:id])
+        @task = Task.new(day_id: @day.id)
         @migrations = Migration.migrated_tasks(@day.id)
         unless current_user && @day.user == current_user
           flash[:error] = "Invalid day."

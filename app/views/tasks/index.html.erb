@@ -1,4 +1,4 @@
-<h1>All Tasks</h1>
+<h1>All Open Tasks</h1>
 
 <% @tasks.each do |task| %>
   <div class="task">
@@ -8,7 +8,7 @@
         <%= form_for task do |f| %>
         <%= f.hidden_field :status, value: "complete" %>
         <div class="complete icon">
-        <%= f.submit value: "" , class: "button-hide" %>
+        <%= f.submit value: "" %>
         </div>
       <% end %>
   </div>
@@ -31,7 +31,7 @@
     <div class="task-component">
       <%= form_for task, method: :delete do |f| %>
         <div class="delete icon">
-        <%= f.submit value: "" , class: "button-hide" %>
+        <%= f.submit value: "" %>
         </div>
       <% end %>
     </div>

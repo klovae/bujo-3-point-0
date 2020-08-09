@@ -12,18 +12,17 @@
 
 <h2>Tasks
     <% if @day.date >= Time.zone.today.beginning_of_day %>
-        <%= link_to new_day_task_path(@day) do %>
-            <div class="add icon"></div>
+        <%= form_for(@task) do |f| %>
+          <%= render partial: '/tasks/form', locals: {f: f} %>
+          <div class="add icon">
+            <%= f.submit "" %>
+          </div>
         <% end %>
+        
     <% end %>
 
 </h2>
 
-<% if @day.tasks.count == 0 && @day.date >= Day.today(current_user.id).date %>
-  <p class="help-text">
-    <em>Click the "+" next to Tasks to add your first task.</em>
-  </p>
-<% end %>
 
 <% @day.tasks.each do |task| %>
   <div class="task">
@@ -36,18 +35,18 @@
           <%= form_for task do |f| %>
             <%= f.hidden_field :status, value: "complete" %>
             <div class="complete icon">
-            <%= f.submit value: "" , class: "button-hide" %>
+            <%= f.submit value: "" %>
             </div>
           <% end %>
       <% end %>
-  </div>
+    </div>
 
     <%# task content %>
     <div class="task-component content">
       <%= task.content %>
     </div>
 
-    <%# task migrate %>
+    <%# task migrate button %>
     <% if task.status != "complete" && @day.date != Day.tomorrow(current_user.id) %>
       <div class="task-component">
       <%= form_for task, url: task_migrations_path(task), method: :post do |f| %>
@@ -58,18 +57,18 @@
       </div>
     <% end %>
 
-    <%# task edit %>
+    <%# task edit button %>
     <div class="task-component">
       <%= link_to edit_day_task_path(@day, task) do %>
         <div class="edit icon"></div>
       <% end %>
     </div>
 
-    <%# task delete %>
+    <%# task delete button %>
     <div class="task-component">
       <%= form_for task, method: :delete do |f| %>
         <div class="delete icon">
-        <%= f.submit value: "" , class: "button-hide" %>
+        <%= f.submit value: "" %>
         </div>
       <% end %>
     </div>

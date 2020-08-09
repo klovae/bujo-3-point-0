@@ -3,11 +3,6 @@ class TasksController < ApplicationController
     def index
         @tasks = current_user.tasks.where("status = ?", "open")
     end
-    
-    def new
-        @day = Day.find_by_id(params[:day_id])
-        @task = Task.new(day_id: @day.id)
-    end
 
     def create
         @task = Task.create(task_params)
@@ -15,7 +10,7 @@ class TasksController < ApplicationController
             redirect_to day_path(@task.day)
         else
             flash[:error] = @task.errors.messages[:content].first
-            redirect_to new_day_task_path(@task.day.id)
+            redirect_to day_path(@task.day.id)
         end
     end
 
