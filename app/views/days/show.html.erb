@@ -10,7 +10,7 @@
 </p>
 <% end %>
 
-<h2>Tasks
+<h2>Tasks</h2>
     <% if @day.date >= Time.zone.today.beginning_of_day %>
         <%= form_for(@task) do |f| %>
           <%= render partial: '/tasks/form', locals: {f: f} %>
@@ -19,7 +19,7 @@
           </div>
         <% end %>
     <% end %>
-</h2>
+
 
 
 <% @day.tasks.each do |task| %>

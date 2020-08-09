@@ -31,9 +31,8 @@ html {
   }
   
   h1, h2, h3 {
-    font-family: 'Lato', sans-serif;
     font-weight: 700;
-    letter-spacing: .01em;
+    margin-bottom: 10px;
   }
   
   p {
@@ -122,16 +121,6 @@ html {
     margin: 20px 0;
   }
   
-  div.day-nav {
-    font-size: 1.3em;
-    line-height: 1.6em;
-  }
-  
-  div.day-list a {
-    font-size: 1.2em;
-    line-height: 1.4em;
-  }
-  
   h1.day-title {
     margin-bottom: .3em;
   }
@@ -165,7 +154,6 @@ html {
     box-sizing: border-box;
     margin: 6px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: .9em;
   }
   
   form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
@@ -187,9 +175,8 @@ html {
   div #task_content {
     display: inline-block;
     padding: 5px;
-    margin-bottom: 0px;
-    margin-top: 15px;
-    font-size: .7em;
+    margin-bottom: 20px;
+    font-size: 1.2em;
     line-height: 1.2em;
     margin-right: 6px;
     width: 80%;
@@ -288,8 +275,8 @@ html {
       background-size: contain;
       width: 24px;
       height: 24px;
-      vertical-align: bottom;
-      padding-bottom: 5px;
+  
+      padding-bottom: 0px;
       background-repeat: no-repeat;
   }
   
