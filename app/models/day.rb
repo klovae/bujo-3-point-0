@@ -15,12 +15,10 @@ class Day < ApplicationRecord
     end
 
     def next_day
-        current_day = Day.find_by_id(params[:id])
-        Day.where("date > ? AND user_id = ?", current_day.date, current_user.id).first
+        self.user.days.where("date > ?", self.date).first
     end
 
     def previous_day
-        current_day = Day.find_by_id(params[:id])
-        Day.where("date < ? AND user_id = ?", current_day.date, current_user.id)[-2]
+        self.user.days.where("date < ?", self.date).last
     end
 end

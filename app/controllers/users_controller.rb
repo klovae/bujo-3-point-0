@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
     skip_around_action :set_time_zone, only: [:new, :create]
+    skip_around_action :set_time_zone unless :current_user
+    skip_before_action :auth_required, only: [:new, :create]
 
     def new
-        @user = User.new
+        if current_user
+            set_time_zone {@today = current_user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)}
+            redirect_to day_path(@today)
+        else
+            @user = User.new
+        end
     end
 
     def create

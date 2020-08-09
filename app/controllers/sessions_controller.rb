@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
     skip_around_action :set_time_zone
+    skip_before_action :auth_required, only: [:new, :create]
 
     def new
+        if current_user
+            set_time_zone {@today = current_user.days.find_or_create_by(date: Time.zone.today.beginning_of_day)}
+            redirect_to day_path(@today)
+        end
     end
 
     def create

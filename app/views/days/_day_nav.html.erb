@@ -1,0 +1,3 @@
+<% if day.previous_day %><%= link_to "Previous", day_path(day.previous_day.id) %><% end %>
+<% if day.next_day %><% if day.previous_day && day.next_day %> || <% end %>
+<%= link_to "Next", day_path(day.next_day.id) %><% end %>

@@ -1,16 +1,8 @@
 <h1 class="day-title"><%= @day.human_time %></h1>
 
-<% if flash[:success] %>
-  <div class="success-message">
-    <%= flash[:success] %>
-  </div>
-<% elsif flash[:errors] %>
-  <div class="error-message">
-    <% flash[:errors].each do |error| %>
-        <p><%= error[1][0] %></p>
-    <% end %>
-  </div>
-<% end %>
+<%= render partial: 'day_nav', locals: { day: @day } %>
+
+<%= render partial: '/layouts/flash_message_center' %>
 
 <% if current_user.days.all.count <= 2 %>
 <p>
@@ -27,7 +19,7 @@
 
 </h2>
 
-<% if @day.tasks.count == 0 %>
+<% if @day.tasks.count == 0 && @day.date >= Day.today(current_user.id).date %>
   <p class="help-text">
     <em>Click the "+" next to Tasks to add your first task.</em>
   </p>
@@ -83,8 +75,8 @@
     </div>
   <% end %>
 
+  <%# migrated tasks start here %>
   <% if @migrations.count > 0 %>
-    <h3>Migrated Tasks</h3>
     <% @migrations.each do |task| %>
     <div class="task">
 
