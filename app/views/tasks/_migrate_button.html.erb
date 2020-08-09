@@ -1,0 +1,9 @@
+<% if task.status != "complete" && @day.date != Day.tomorrow(current_user.id) %>
+    <div class="task-component">
+        <%= form_for task, url: task_migrations_path(task), method: :post do |f| %>
+            <div class="migrate icon">
+                <%= f.submit value: "" %>
+            </div>
+        <% end %>
+    </div>
+<% end %>

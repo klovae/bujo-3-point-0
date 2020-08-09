@@ -29,10 +29,15 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
-    def edit
-    end
-
     def update
+        @user = current_user
+        if @user.update(user_params)
+            flash[:success] = "Account updated successfully"
+            redirect_to user_path(@user)
+        else
+            flash.now[:errors] = @user.errors.full_messages
+            render :show
+        end
     end    
 
     private

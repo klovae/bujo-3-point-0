@@ -18,9 +18,7 @@
             <%= f.submit "" %>
           </div>
         <% end %>
-        
     <% end %>
-
 </h2>
 
 
@@ -32,12 +30,7 @@
       <% if task.status == "complete" %>
         <div class="completed icon"></div>
       <% else %>
-          <%= form_for task do |f| %>
-            <%= f.hidden_field :status, value: "complete" %>
-            <div class="complete icon">
-            <%= f.submit value: "" %>
-            </div>
-          <% end %>
+          <%= render partial: '/tasks/complete_button', locals: { task: task }%>
       <% end %>
     </div>
 
@@ -47,31 +40,14 @@
     </div>
 
     <%# task migrate button %>
-    <% if task.status != "complete" && @day.date != Day.tomorrow(current_user.id) %>
-      <div class="task-component">
-      <%= form_for task, url: task_migrations_path(task), method: :post do |f| %>
-        <div class="migrate icon">
-          <%= f.submit value: "" %>
-        </div>
-      <% end %>
-      </div>
-    <% end %>
+    <%= render partial: '/tasks/migrate_button', locals: { task: task }%>
 
     <%# task edit button %>
-    <div class="task-component">
-      <%= link_to edit_day_task_path(@day, task) do %>
-        <div class="edit icon"></div>
-      <% end %>
-    </div>
+    <%= render partial: '/tasks/edit_button', locals: { task: task }%>
+    
 
     <%# task delete button %>
-    <div class="task-component">
-      <%= form_for task, method: :delete do |f| %>
-        <div class="delete icon">
-        <%= f.submit value: "" %>
-        </div>
-      <% end %>
-    </div>
+    <%= render partial: '/tasks/delete_button', locals: { task: task }%>
   <% end %>
 
   <%# migrated tasks start here %>

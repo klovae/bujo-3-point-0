@@ -16,7 +16,7 @@ class MigrationsController < ApplicationController
             migrate = Migration.create(task_id: task.id, day_id: day_id, new_day_id: new_day.id)
             task.day = new_day
             task.save
-            flash[:success] = "Task migrated"
+            flash[:success] = "Task migrated."
             redirect_to day_path(day_id)
         
         else #if trying to migrate from Day.tomorrow
