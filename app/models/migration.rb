@@ -4,7 +4,7 @@ class Migration < ApplicationRecord
 
     def self.migrated_tasks(day_id)
         tasks_collection = []
-        Migration.where('day_id == ?', day_id).find_each do |migration|
+        Migration.where('day_id = ?', day_id).find_each do |migration|
             if migration.task #prevents deleted tasks from showing up here
                 tasks_collection << migration.task
             end

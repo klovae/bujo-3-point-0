@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-    skip_around_action :set_time_zone unless :current_user
+    skip_around_action :set_time_zone
     skip_before_action :auth_required
 
     def help
