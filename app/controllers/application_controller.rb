@@ -16,9 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def set_time_zone
-        if current_user
-            Time.use_zone(current_user.time_zone) { yield }
-        end
+        Time.use_zone(current_user.time_zone) { yield }
     end
 
 end

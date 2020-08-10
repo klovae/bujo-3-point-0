@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+    around_action :set_time_zone, if: :current_user
     skip_before_action :auth_required
 
     def help
@@ -8,9 +9,6 @@ class StaticController < ApplicationController
     end
 
     def index
-        if current_user
-            redirect_to day_path(Day.today(current_user.id))
-        end
     end
 
 end

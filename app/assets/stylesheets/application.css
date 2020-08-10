@@ -65,7 +65,7 @@ html {
   
   #all-wrap {
     width: 60%;
-    height: auto;
+    height: 100%;
     background-color: rgba(255, 255, 255, .7);
     padding: 0 5%;
     margin: auto;
@@ -92,6 +92,8 @@ html {
     float: right;
     width: 72%;
     padding-top: 3%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   /* /////// FLASH DIVS ////// */
@@ -296,11 +298,12 @@ html {
   }
   
   /* ///// FIXES ////// */
-
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  
+  .clearfix:after {
+     content: ".";
+     visibility: hidden;
+     display: block;
+     height: 0;
+     clear: both;
   }
   
- 
